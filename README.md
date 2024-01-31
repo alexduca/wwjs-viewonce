@@ -20,3 +20,6 @@ This NodeJS script, when associated with your Whatsapp, saves on your server/com
 [https://www.npmjs.com/package/whatsapp-web.js](https://www.npmjs.com/package/whatsapp-web.js)  
 [https://www.npmjs.com/package/qrcode-terminal](https://www.npmjs.com/package/qrcode-terminal )  
 [https://www.npmjs.com/package/colors](https://www.npmjs.com/package/colors)
+
+![WWJSVO-Example01]()
+
