@@ -31,7 +31,7 @@ client.on('ready', () => {
     defineReportsCustomLogs("Whatsapp", "Whatsapp Client is ready!", "whatsapp_ready")
     if (!fs.existsSync(path_archive)){
         fs.mkdirSync(path_archive);
-        defineReportsCustomLogs("PATH", 'The "archive folder" was successfully created.', "path_folder")
+        defineReportsCustomLogs("PATH", 'The "archive" folder was successfully created.', "path_folder")
     } console.log('\n');
 });
 
