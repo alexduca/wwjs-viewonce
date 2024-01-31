@@ -22,4 +22,4 @@ This NodeJS script, when associated with your Whatsapp, saves on your server/com
 [https://www.npmjs.com/package/colors](https://www.npmjs.com/package/colors)
 
 
-![WWJSVO-Example01](wwjs-viewonce-example01.png)
+![WWJSVO-Example01](folders.png)
