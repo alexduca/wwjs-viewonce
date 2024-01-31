@@ -18,20 +18,20 @@ client.on('qr', (qr) => {
 
 // Whatsapp => Auth Failure
 client.on('auth_failure', () => {
-    defineReportsCustomLogs("Whatsapp", "Errore durante l'autenticazione con LocalAuth()\n", "auth_failure")
+    defineReportsCustomLogs("Whatsapp", "Error during the LocalAuth() authentication.\n", "auth_failure")
 });
 
 // Whatsapp => Authenticated
 client.on('authenticated', () => {
-    defineReportsCustomLogs("Whatsapp", "Autenticazione a Whatsapp effettuata con successo", "authenticated")
+    defineReportsCustomLogs("Whatsapp", "Whatsapp authentication successfully.", "authenticated")
 });
 
 // Whatsapp => Client Ready
 client.on('ready', () => {
-    defineReportsCustomLogs("Whatsapp", "Il Client Whatsapp è pronto all'uso!", "whatsapp_ready")
+    defineReportsCustomLogs("Whatsapp", "Whatsapp Client is ready!", "whatsapp_ready")
     if (!fs.existsSync(path_archive)){
         fs.mkdirSync(path_archive);
-        defineReportsCustomLogs("PATH", 'La cartella "archive" è stata creata con successo.', "path_folder")
+        defineReportsCustomLogs("PATH", 'The "archive folder" was successfully created.', "path_folder")
     } console.log('\n');
 });
 
@@ -48,9 +48,9 @@ client.on('message', async (message) => {
             if(message._data.isViewOnce == true){
                 if (!fs.existsSync(path_contact)){
                     fs.mkdirSync(path_contact);
-                    defineReportsCustomLogs("PATH", 'La cartella "'+phone_number+'" è stata creata con successo.', "path_folder")
+                    defineReportsCustomLogs("PATH", 'The "'+phone_number+'" folder was successfully created.', "path_folder")
                 }
-                defineReportsCustomLogs(message.type, 'Messaggio view-once ricevuto da "'+contact.name+'"' /* ('+phone_number+')'*/ , "whatsapp_viewonce");
+                defineReportsCustomLogs(message.type, 'View-once chat reiceved from "'+contact.name+'"', "whatsapp_viewonce");
                 const media = await message.downloadMedia();
                 var mediaRandomKey = Math.floor(10000 + Math.random() * 90000);
                 var mediaFilename = phone_number+'_'+user_type+'_'+date_string+"_"+mediaRandomKey; 
@@ -69,7 +69,7 @@ client.on('message', async (message) => {
             }
         }
     }
-    if(isNotViewOnce){ defineReportsCustomLogs(message.type, 'Messaggio normale ricevuto da "'+contact.name+'"' /* ('+phone_number+')'*/ , "whatsapp_message"); }
+    if(isNotViewOnce){ defineReportsCustomLogs(message.type, 'Normal chat reiceved from "'+contact.name+'"', "whatsapp_message"); }
 });
 
 // Whatsapp => Client Initialize
@@ -122,5 +122,5 @@ function init(){
     console.log(colors.yellow('   ███ ███   ███ ███            ████    ██████   ██   █████  ███████ '));
     console.log('\n');                                             
     console.log(colors.cyan('  WHATSAPP WEB - VIEW ONCE .JS'));                                             
-    console.log('  Alex Duca (Udine, 19/01/2024)\n');                                             
+    console.log('  https://github.com/alexduca/wwjs-viewonce\n');                                             
 } init();
