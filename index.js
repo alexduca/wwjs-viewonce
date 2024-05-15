@@ -9,6 +9,11 @@ const colors = require('colors');
 // Define Whatsapp Client
 const client = new Client({
     authStrategy: new LocalAuth({ clientId: 'user' }),
+    webVersion: '2.2409.2',
+    webVersionCache: {
+        type: 'remote',
+        remotePath: 'https://raw.githubusercontent.com/wppconnect-team/wa-version/main/html/2.2409.2.html'
+    }
 });
 
 // Whatsapp => Create QR Code
